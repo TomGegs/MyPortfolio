@@ -1,0 +1,4 @@
+hero:
+    seperate blue square background and face
+    animate a blur fade-in for face
+    include a box with helpful information for recruiters positioned between face and blue box 
