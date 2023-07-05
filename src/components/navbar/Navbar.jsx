@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import { Link } from "react-scroll";
+import React, { useEffect, useState } from "react";
 import NavBgOnScroll from "../../hooks/NavOnScroll";
 
 import { images } from "../../data/index";
+import SocialLinks from "../ui/SocialLinks";
+import NavBarMobileMenuItems from "../ui/NavBarMobileMenuItems";
+import ButtonDownloadHandler from "../ui/ButtonDownloadHandler";
 
 function NavBar() {
     // Mobile menu toggle & state
@@ -12,84 +15,207 @@ function NavBar() {
     // Change Navbar background on scroll
     const [navBarBackground] = NavBgOnScroll();
 
+    // Hide open mobile menu when window is resized to desktop
+    useEffect(() => {
+        window.addEventListener(
+            "resize",
+            () => window.innerWidth >= 960 && setMobileMenu(false)
+        );
+    }, []);
+
     return (
         <nav>
             {/* Container */}
             <div
-                className={`absolute lg:fixed z-40 h-20 w-full items-center justify-end px-4 py-4 font-encode font-medium uppercase text-white transition-all duration-300 ease-in-out lg:mx-auto lg:flex lg:justify-between lg:px-20 lg:py-12 ${
+                className={`absolute z-40 h-20 w-full items-center justify-end px-4 py-4 font-encode font-medium text-[#FFFDFA] transition-all duration-200 ease-in lg:fixed lg:mx-auto lg:flex lg:justify-between lg:px-20 lg:py-12 ${
                     // Navbar hook
                     navBarBackground
                         ? // on scroll changes to:
-                          "rounded-b-xl border-none bg-[white]/25 bg-opacity-10 shadow-md backdrop-blur"
+                          "rounded-b-xl border-none bg-gradient-to-b from-bgPrimary to-[#d7e4e0]/10 shadow-md backdrop-blur transition-all duration-200 ease-in"
                         : // at top of page uses default class
                           ""
-                } ${mobileMenu ? "hidden lg:block" : ""}`}>
+                } `}>
                 {/* Left side: website logo */}
-                <Link to="/Home">
+                <Link
+                    to={"hero"}
+                    spy={true}
+                    smooth={true}
+                    offset={0}
+                    duration={500}>
                     <img
                         src={images.bannerLogo}
                         alt="bannerLogo"
-                        className="hidden lg:block"
+                        className="hidden cursor-pointer lg:block "
                     />
                 </Link>
 
                 {/* Right side:  navigation items */}
-                <div className="hidden space-x-4 text-center lg:flex">
-                    <Link to="/about">
-                        <p className="rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-700 hover:text-primary">
+                <ul className="hidden space-x-4 text-center lg:flex">
+                    <Link
+                        to={"about"}
+                        spy={true}
+                        smooth={true}
+                        offset={-60}
+                        duration={500}>
+                        <li className="cursor-pointer rounded-lg px-3 py-2 font-medium text-[#FFFDFA] hover:bg-slate-700 hover:text-primary ">
                             About
-                        </p>
+                        </li>
                     </Link>
 
-                    <Link to="/projects">
-                        <p className="rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-700 hover:text-primary">
+                    <Link
+                        to={"projects"}
+                        spy={true}
+                        smooth={true}
+                        offset={-80}
+                        duration={500}>
+                        <li className="cursor-pointer rounded-lg px-3 py-2 font-medium text-[#FFFDFA] hover:bg-slate-700 hover:text-primary">
                             Projects
-                        </p>
+                        </li>
                     </Link>
 
-                    <Link to="/contact">
-                        <p className="rounded-lg px-3 py-2 font-medium text-white hover:bg-slate-700 hover:text-primary">
+                    <Link
+                        to={"contact"}
+                        spy={true}
+                        smooth={true}
+                        offset={0}
+                        duration={500}>
+                        <li className="cursor-pointer rounded-lg  px-3 py-2 font-medium text-[#FFFDFA] hover:bg-slate-700 hover:text-primary">
                             Contact
-                        </p>
+                        </li>
                     </Link>
 
-                    <Link to="/resume">
-                        <button
-                            type="button"
-                            className="flex items-center rounded-lg bg-primary px-3 py-2 font-medium uppercase text-white hover:bg-altSecond">
-                            Resume
-                        </button>
-                    </Link>
-                </div>
+                    <ButtonDownloadHandler
+                        label={"Resumé"}
+                        fileName={"TomGeoghegan_Resume.pdf"}
+                        filePath={"./files/TomGeoghegan_Resume.pdf"}
+                        styling={
+                            "flex items-center rounded-lg bg-primary px-3 py-2  font-medium  text-[#FFFDFA] hover:bg-altSecond"
+                        }
+                    />
+                </ul>
 
                 {/* Show burgerMenu icon on mobile screens */}
-                <div className="z-50 flex  items-center justify-between px-4  lg:hidden">
-                      <images.burgerMenu size={25} onClick={toggleMenu} />
-                    <Link to="/Home">
+                <div className="relative z-50 flex w-full items-center justify-between overflow-hidden px-2  lg:hidden">
+                    <Link to="hero">
                         <img
                             src={images.bannerLogo}
                             alt="bannerLogo"
-                            className="flex w-32 overflow-clip  lg:hidden"
+                            className="flex w-32 lg:hidden"
                         />
                     </Link>
+                    <div
+                        className=" fixed right-0 mr-8 flex"
+                        onClick={toggleMenu}>
+                        {mobileMenu ? (
+                            <images.closeMenu size={25} className="z-50" />
+                        ) : (
+                            <images.burgerMenu size={25} />
+                        )}
+                    </div>
                 </div>
-            </div>
 
-            {/* Mobile links */}
-            <div
-                className={
-                    mobileMenu
-                        ? "fixed left-0 top-0 z-50 h-full w-[60%] border-r border-r-gray-900 bg-[white]/25 bg-opacity-50 shadow-md backdrop-blur duration-500 ease-in-out hover:cursor-pointer"
-                        : "fixed left-[-100%]"
-                }>
-                  <img src={images.logoIcon} alt="logo" className=" w-24 p-4" />
-               
-                <ul className="p-4 uppercase text-[white]">
-                    <li className="border-y border-primary p-4">About</li>
-                    <li className="border-b border-primary p-4">Projects</li>
-                    <li className="border-b border-primary p-4">Contact</li>
-                    <li className="border-b border-primary p-4">Resume</li>
-                </ul>
+                {/* Mobile links */}
+                <div
+                    className={
+                        mobileMenu
+                            ? "fixed left-0 top-0 h-full w-full transition-all duration-500 ease-in-out"
+                            : "ease-out-in fixed left-[-100%] top-0 h-full w-full transition-all duration-500"
+                    }>
+                    {/* Mobile Menu Wrapper */}
+                    <div className="flex min-h-[100vh] w-[100%] flex-1 flex-col overflow-hidden bg-opacity-50 bg-gradient-to-r from-bgPrimary to-[#d7e4e0]/10 shadow-md backdrop-blur">
+                        {/* Top - Profile Wrapper */}
+                        <div className="mx-8 mt-12 flex w-[80%] flex-1 flex-row items-center justify-center rounded-[1rem] md:w-[fit] ">
+                            {/* Profile image */}
+                            <img
+                                src={images.myHeadshot2}
+                                alt="headshot"
+                                className="h-20 rounded-l-[1rem] object-cover"
+                            />
+                            {/* Profile text */}
+                            <div className="flex h-20 flex-1 flex-col justify-center rounded-r-[1rem] bg-bgSecondary pl-4 pr-12">
+                                <p className="font-encode font-medium text-[#FFFDFA]">
+                                    Tom Geoghegan
+                                </p>
+                                <p className="font-encode text-sm font-thin text-[#FFFDFA]">
+                                    Front-end developer
+                                </p>
+                                <p className="font-encode text-sm font-thin text-[#FFFDFA]">
+                                    tomgegs@outlook.com
+                                </p>
+                            </div>
+                        </div>
+                        {/* Middle Wrapper - Menu links */}
+                        <div className="mt-4 flex h-full w-[95%] flex-1 flex-col justify-between rounded-r-[2rem] bg-bgSecondary py-12">
+                            <ul className="justify-left mb-6 flex w-full  flex-col space-y-8  px-8 font-encode font-semibold text-[#FFFDFA]">
+                                <Link
+                                    to={"hero"}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={0}
+                                    duration={500}
+                                    onClick={toggleMenu}>
+                                    <NavBarMobileMenuItems
+                                        menuItem={"Home"}
+                                        onClick={toggleMenu}
+                                    />
+                                </Link>
+                                <Link
+                                    to={"about"}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={50}
+                                    duration={500}
+                                    onClick={toggleMenu}>
+                                    <NavBarMobileMenuItems
+                                        menuItem={"About"}
+                                        onClick={toggleMenu}
+                                    />
+                                </Link>
+                                <Link
+                                    to={"projects"}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={0}
+                                    duration={500}
+                                    onClick={toggleMenu}>
+                                    <NavBarMobileMenuItems
+                                        menuItem={"Projects"}
+                                    />
+                                </Link>
+
+                                <ButtonDownloadHandler
+                                    label={"Resumé"}
+                                    fileName={"TomGeoghegan_Resume.pdf"}
+                                    filePath={"./files/TomGeoghegan_Resume.pdf"}
+                                    styling={
+                                        "cursor-pointer rounded-xl border border-bgPrimary text-left from-altSecond to-primary p-4 hover:border-primary hover:text-primary active:border-bgPrimary active:bg-gradient-to-r active:text-[#FFFDFA]"
+                                    }
+                                />
+                            </ul>
+                            {/* Bottom - Contact button */}
+                            <div className="relative flex w-full place-content-center ">
+                                <div className="left-4.5 absolute -top-1 h-16 w-[90%] animate-gradientFast bg-gradient-to-r from-primary via-altSecond to-secondary blur-md" />
+                                <Link
+                                    to={"contact"}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-30}
+                                    duration={500}
+                                    onClick={toggleMenu}
+                                    className="flex w-full justify-center ">
+                                    <button
+                                        type="button"
+                                        className=" relative flex w-[90%] justify-center rounded-xl  bg-bgPrimary py-4 hover:text-primary active:translate-y-0.5 active:scale-95">
+                                        Let's work together
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="-mb-8 mt-4 flex overflow-hidden align-bottom">
+                                <SocialLinks size={"30"} pulse={"hidden"} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     );

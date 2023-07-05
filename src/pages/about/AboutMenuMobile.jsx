@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { images } from "../../data/index";
 
-const AboutMenuMobile = ({ onToggle, activeButton }) => {
+const AboutMenuMobile = ({ onToggle }) => {
     const [currentButton, setCurrentButton] = useState("skillsCopy");
 
     const handleClick = (button) => {
@@ -16,36 +16,22 @@ const AboutMenuMobile = ({ onToggle, activeButton }) => {
         workCopy: useRef(null),
     };
 
-    useEffect(() => {
-        if (buttonRefs[currentButton] && buttonRefs[currentButton].current) {
-            buttonRefs[currentButton].current.focus();
-        }
-    }, [currentButton]);
-
     const menuButton =
-        "p-1 flex flex-col place-content-evenly place-items-center  active:font-semibold focus:font-semibold active:text-primary focus:text-primary focus:outline-none";
+        "p-1 flex flex-col border-b rounded-xl active:rounded-xl focus:rounded-xl hover:bg-[#FFFDFA]/20 focus:border-primary/50 active:translate-y-[2px] active:border-primary/50 border-bgPrimary/50 mx-1 flex-1 place-content-evenly justify-center align-middle place-items-center active:font-semibold focus:font-semibold active:text-primary focus:text-primary focus:outline-none";
 
     return (
-        <div className="grid w-full grid-cols-4 text-[14px] font-thin text-white md:hidden">
+        <div className="grid w-full grid-cols-4 text-[14px] font-thin text-white/50  lg:hidden">
             <button
                 ref={buttonRefs.skillsCopy}
                 className={`${menuButton} ${
-                    currentButton === "skillsCopy" ? "active" : ""
+                    currentButton === "skillsCopy"
+                        ? "active rounded-xl border-b border-primary/50 font-semibold text-primary"
+                        : "border-bgPrimary/50 text-white/50"
                 }`}
                 onClick={() => handleClick("skillsCopy")}
                 name="skillsCopy">
                 <images.skillsIcon className="my-auto text-[30px]" />
                 Skills
-            </button>
-            <button
-                ref={buttonRefs.workCopy}
-                className={`${menuButton} ${
-                    currentButton === "workCopy" ? "active" : ""
-                }`}
-                onClick={() => handleClick("workCopy")}
-                name="workCopy">
-                <images.workIcon className="my-auto text-[30px]" />
-                Work
             </button>
 
             <button
@@ -57,6 +43,16 @@ const AboutMenuMobile = ({ onToggle, activeButton }) => {
                 name="storyCopy">
                 <images.storyIcon className="my-auto text-[30px]" />
                 Story
+            </button>
+            <button
+                ref={buttonRefs.workCopy}
+                className={`${menuButton} ${
+                    currentButton === "workCopy" ? "active" : ""
+                }`}
+                onClick={() => handleClick("workCopy")}
+                name="workCopy">
+                <images.workIcon className="my-auto text-[30px]" />
+                Work
             </button>
             <button
                 ref={buttonRefs.hobbiesCopy}

@@ -9,7 +9,7 @@ const Index = () => {
   return (
     <div className="bg-bgPrimary">
       <NavBar />
-      <Hero />
+      <Hero/>
       <About />
       <Projects />
       <Contact />

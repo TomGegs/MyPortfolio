@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import MenuSidebar from "./MenuSidebar";
 import { images, aboutCopy } from "../../data/index";
 import AboutMenuMobile from "./AboutMenuMobile";
-import { Fade } from "react-awesome-reveal";
-import IconTile from "./IconTile";
+import Header from "../../components/ui/Header";
 
 const AboutPanel = () => {
     const [showSkills, setShowSkills] = useState(true);
@@ -16,7 +15,7 @@ const AboutPanel = () => {
     const [showStoryImg, setShowStoryImg] = useState(false);
     const [showHobbiesImg, setShowHobbiesImg] = useState(false);
     //useState buttons
-    const [activeButton, setActiveButton] = useState("skillsCopy");
+    const [activeButton] = useState("skillsCopy");
 
     const handleCopyToggle = (button) => {
         if (button === "storyCopy") {
@@ -58,14 +57,10 @@ const AboutPanel = () => {
         }
     };
 
-    const handleActiveButtonToggle = (button) => {
-        setActiveButton(button);
-    };
-
     const copyHeader =
-        "rounded-md text-[1.2rem] xl:text-[1.5rem] font-medium text-primary";
+        "text-[1rem] min-h-[48px] lg:text-[1.5rem] 2xl:text-[2rem] font-medium font-encode text-primary";
     const copyBody =
-        "text-[0.9rem] mt-2 text-white font-light min-h-[500px] lg:justify-between flex flex-col font-encode xl:text-[1.2rem]";
+        "text-[0.85rem] overflow-clip mt-2 text-white min-h-[370px] lg:h-full font-light lg:justify-between flex flex-col font-encode md:text-[1.2rem] 2xl:text-[1.4rem]";
 
     const skillsCopy = (
         <>
@@ -75,7 +70,6 @@ const AboutPanel = () => {
                     <React.Fragment key={index}>
                         {paragraph}
                         <br />
-                        <IconTile />
                     </React.Fragment>
                 ))}
             </p>
@@ -126,68 +120,74 @@ const AboutPanel = () => {
 
     return (
         // Section Container
-        <div className="relative my-12 flex w-full md:py-6">
+        <div className="relative h-fit my-12 flex w-full lg:py-6">
             {/* About tile container */}
-            <div className="mx-3 flex w-full flex-col rounded-[2rem] bg-bgSecondary p-4 shadow-xl shadow-stone-900 md:mx-6 md:h-[700px] md:flex-row md:p-0">
+            <div className="mx-3 flex min-h-[95vh] w-full flex-col rounded-[2rem] bg-bgSecondary p-4 shadow-xl shadow-stone-900 lg:mx-6 lg:min-h-[700px] lg:flex-row lg:p-0">
+                <div className="flex flex-col lg:flex-row">
                 <MenuSidebar
                     onToggle={handleCopyToggle}
                     activeButton={activeButton}
                     className="z-20"
                 />
-                {/*Text container */}
-                <div className="flex-2 flex max-h-[44vh] w-full flex-col justify-between px-4 md:my-4  ">
-                    <div className="">
-                        {/* Title animated */}
-                        <h2 className="animate-gradient bg-gradient-to-r from-primary via-green-300 to-[#8553F4] bg-clip-text pb-2.5 font-encode text-[2rem]  text-transparent md:mb-4  md:text-[3rem]">
-                            {`About me:  ${
-                                showSkills
-                                    ? aboutCopy[0].category
-                                    : "" || showWork
-                                    ? aboutCopy[1].category
-                                    : "" || showStory
-                                    ? aboutCopy[2].category
-                                    : "" || showHobbies
-                                    ? aboutCopy[3].category
-                                    : ""
-                            }`}
-                        </h2>
-                        {/* Divider animated */}
-                        <hr className="block h-[1px] w-[95%] animate-gradient rounded border-0 bg-gradient-to-r from-primary via-secondary to-[#cbb7f7] " />
+                    {/*Text container */}
+                    <div className="flex-2 flex w-full flex-col justify-between px-4 lg:my-4 lg:min-h-[50vh]  ">
+                        <div className="flex h-full flex-col">
+                            {/* Title animated */}
+                            <Header
+                                title={`About Me:  ${
+                                    showSkills
+                                        ? aboutCopy[0].category
+                                        : "" || showWork
+                                        ? aboutCopy[1].category
+                                        : "" || showStory
+                                        ? aboutCopy[2].category
+                                        : "" || showHobbies
+                                        ? aboutCopy[3].category
+                                        : ""
+                                }`}
+                                width={`95%`}
+                                block={`block`}
+                            />
 
-                        <div className="flex w-fit flex-col px-1 py-2 md:w-[85%] md:py-4 ">
-                            {showSkills && skillsCopy}
-                            {showWork && workCopy}
-                            {showStory && storyCopy}
-                            {showHobbies && hobbiesCopy}
+                            <div className="flex h-full w-fit flex-col overflow-clip px-1 py-2 lg:w-full lg:py-4 lg:pr-4">
+                                {showSkills && skillsCopy}
+                                {showWork && workCopy}
+                                {showStory && storyCopy}
+                                {showHobbies && hobbiesCopy}
+                            </div>
+                            {/* Tools and Tech Icon Container */}
+                            {/* <div className="hidden md:flex">
+                            <IconTile />
+                        </div> */}
                         </div>
                     </div>
+                    {/* Image container */}
+                    <div className="flex-3 mx-auto flex  w-[100%] justify-end md:w-[70%] lg:h-full lg:justify-center lg:p-4">
+                        <img
+                            src={
+                                showSkillsImg
+                                    ? images.TomSkills
+                                    : showWorkImg
+                                    ? images.tomWork
+                                    : showStoryImg
+                                    ? images.running
+                                    : showHobbiesImg
+                                    ? images.tomHobbies
+                                    : images.TomSkills
+                            }
+                            alt={images.tomSkills}
+                            className="mx-auto h-full w-full rounded-[2rem] object-cover p-2 lg:h-[100%] lg:w-[100%]  lg:p-0"
+                        />
+                    </div>
+                    <div className="bottom-0 mt-2 flex h-fit flex-col justify-end lg:hidden">
+                        <hr className="mb-4 ml-2 block h-[1px] w-[95%] animate-gradient rounded border-0 bg-gradient-to-r from-primary to-[#cbb7f7] " />
+                        <AboutMenuMobile
+                            onToggle={handleCopyToggle}
+                            activeButton={activeButton}
+                        />
+                    </div>
+                    {/* about tile ends above */}
                 </div>
-                {/* Image container */}
-                <div className="flex-3 mx-auto flex md:w-[70%] md:justify-center md:p-4">
-                    <img
-                        src={
-                            showSkillsImg
-                                ? images.TomSkills
-                                : showWorkImg
-                                ? images.tomWork
-                                : showStoryImg
-                                ? images.running
-                                : showHobbiesImg
-                                ? images.tomHobbies
-                                : images.TomSkills
-                        }
-                        alt={images.tomSkills}
-                        className="h-[100%] w-[100%] rounded-[2rem] object-cover p-2 md:p-0"
-                    />
-                </div>
-                <div className="mt-2 block md:hidden">
-                    <hr className="mb-4 ml-2 block h-[1px] w-[95%] animate-gradient rounded border-0 bg-gradient-to-r from-primary to-[#cbb7f7] " />
-                    <AboutMenuMobile
-                        onToggle={handleCopyToggle}
-                        activeButton={activeButton}
-                    />
-                </div>
-                {/* about tile ends above */}
             </div>
         </div>
     );

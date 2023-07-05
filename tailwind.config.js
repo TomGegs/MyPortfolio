@@ -7,6 +7,7 @@ module.exports = {
             colors: {
                 primary: "#1bb7cc",
                 secondary: "#0cb5a4",
+
                 altSecond: "#8553F4",
                 primaryDark: "#192442",
                 bgPrimary: "#232323",
@@ -14,15 +15,25 @@ module.exports = {
             },
             animation: {
                 gradient: "gradient 5s infinite",
+                gradientFast: "gradientSpin 3s infinite linear",
                 bobbing: "bobbing 12s ease-in-out infinite",
                 bobbingFast: "bobbing 7s ease-in-out infinite",
                 fadeBottom: "fadeBottom 1s ease-in",
                 wave: "wave 3s linear 3 3s",
                 appearRight: "appearRight 2s ease-in-out 1",
                 appearLeft: "appearLeft 2s ease-in-out 1",
+                logoSlide: "slide 10s linear infinite",
             },
 
             keyframes: {
+                slide: {
+                    "0%": {
+                        transform: "translateX(0%)",
+                    },
+                    "100%": {
+                        transform: "translateX(-100%)",
+                    },
+                },
                 gradient: {
                     "0%, 100%": {
                         "background-size": "200% 200%",
@@ -31,6 +42,17 @@ module.exports = {
                     "50%": {
                         "background-size": "200% 200%",
                         "background-position": "right center",
+                    },
+                },
+                gradientSpin: {
+                    "0%, 50%, 100%": {
+                        transform: "rotate(0deg)",
+                    },
+                    "25%": {
+                        transform: "rotate(1deg)",
+                    },
+                    "75%": {
+                        transform: "rotate(-1deg)",
                     },
                 },
                 wave: {

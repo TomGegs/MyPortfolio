@@ -1,21 +1,26 @@
 //icons
-import { FaLaptopCode, FaAddressCard, FaMugHot, FaFile } from "react-icons/fa";
+import {
+    FaAddressCard,
+    FaMugHot,
+    FaFile,
+    FaFileDownload,
+    FaGithub,
+    FaTwitter,
+    FaEnvelope,
+    FaLinkedinIn,
+} from "react-icons/fa";
 import { RiMoonClearFill } from "react-icons/ri";
-import { FaFileDownload } from "react-icons/fa";
 import { BsArrowRightSquareFill } from "react-icons/bs";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import { BsFillBookFill } from "react-icons/bs";
+import { BsFillBookFill, BsFillPhoneFill } from "react-icons/bs";
 import { BsFillTrophyFill } from "react-icons/bs";
 import { MdWavingHand, MdWork } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { HiMenu, HiX } from "react-icons/hi";
 
 //images
-import myHeadshot from "../assets/images/myHeadshot.png";
-import background from "../assets/images/background.png";
-import background1 from "../assets/images/background2.png";
-import fedgv from "../assets/images/fedgv.svg";
-import running from "../assets/images/running.png";
+import myHeadshot from "../assets/images/myHeadshot.webp";
+import running from "../assets/images/running.webp";
 import bootstrap from "../assets/images/bootstap.svg";
 import css from "../assets/images/css3.svg";
 import figma from "../assets/images/figma.svg";
@@ -29,18 +34,19 @@ import sass from "../assets/images/sass.svg";
 import vite from "../assets/images/vite.svg";
 import vscode from "../assets/images/vscode.svg";
 import bannerLogo from "../assets/images/bannerLogo.svg";
-import whiteBoxHero from "../assets/images/whiteBoxHero.svg";
-import blueBoxHero from "../assets/images/blueBoxHero.svg";
-import myHeadshot2 from "../assets/images/myHeadshot2.png";
-import test from "../assets/images/test.png";
+import myHeadshot2 from "../assets/images/myHeadshot2.webp";
 import heroElementBackground from "../assets/images/heroElementBackground.svg";
 import logoIcon from "../assets/images/logoIcon.svg";
 import tailwindCSS from "../assets/images/tailwindCSS.svg";
-import tomHobbies from "../assets/images/tomHobbies.png";
-import TomSkills from "../assets/images/tomSkills.png";
-import tomWork from "../assets/images/tomWork.png";
-import mobileMockup from "../assets/images/mobileMockup.png";
-import laptopMockup from "../assets/images/laptopMockup.png";
+import tomHobbies from "../assets/images/tomHobbies.webp";
+import TomSkills from "../assets/images/tomSkills.webp";
+import tomWork from "../assets/images/tomWork.webp";
+import ProjectDALLEClone from "../assets/images/ProjectDALLEClone.svg";
+import ProjectClothingStore from "../assets/images/ProjectClothingStore.svg";
+import ProjectWeatherApp from "../assets/images/ProjectWeatherApp.svg";
+import ProjectFinanceWebsite from "../assets/images/ProjectFinanceWebsite.svg";
+import ProjectsSpotifyPlaylist from "../assets/images/ProjectsSpotifyPlaylist.svg";
+import ContactImage from "../assets/images/ContactImage.svg";
 
 //simplified icons
 const burgerMenu = HiMenu;
@@ -57,8 +63,13 @@ const skillsIcon = BsFillTrophyFill;
 const storyIcon = MdWavingHand;
 const forwardArrowIcon = IoIosArrowForward;
 const workIcon = MdWork;
+const phoneIcon = BsFillPhoneFill;
+const gitHubIcon = FaGithub;
+const twitterIcon = FaTwitter;
+const emailIcon = FaEnvelope;
+const linkedinIcon = FaLinkedinIn;
 
-export default {
+const images = {
     burgerMenu,
     closeMenu,
     workIcon,
@@ -73,10 +84,12 @@ export default {
     skillsIcon,
     storyIcon,
     forwardArrowIcon,
+    phoneIcon,
+    gitHubIcon,
+    twitterIcon,
+    emailIcon,
+    linkedinIcon,
     myHeadshot,
-    background,
-    background1,
-    fedgv,
     running,
     bootstrap,
     css,
@@ -91,16 +104,19 @@ export default {
     vite,
     vscode,
     bannerLogo,
-    whiteBoxHero,
-    blueBoxHero,
     myHeadshot2,
-    test,
     heroElementBackground,
     logoIcon,
     tailwindCSS,
     tomHobbies,
     TomSkills,
     tomWork,
-    mobileMockup,
-    laptopMockup,
+    ProjectDALLEClone,
+    ProjectClothingStore,
+    ProjectWeatherApp,
+    ProjectFinanceWebsite,
+    ProjectsSpotifyPlaylist,
+    ContactImage,
 };
+
+export default images;

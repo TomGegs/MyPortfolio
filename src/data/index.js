@@ -1,4 +1,5 @@
 import images from "./images";
 import aboutCopy from "./aboutCopy";
+import emailCopy from "./emailCopy";
 
-export { images, aboutCopy };
+export { images, aboutCopy, emailCopy };

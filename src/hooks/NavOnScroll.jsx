@@ -23,4 +23,3 @@ const NavBgOnScroll = () => {
 };
 
 export default NavBgOnScroll;
- 

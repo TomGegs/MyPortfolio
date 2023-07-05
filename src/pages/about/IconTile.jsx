@@ -1,4 +1,3 @@
-import React from "react";
 import { images } from "../../data/index";
 
 const IconTile = () => {
@@ -18,21 +17,21 @@ const IconTile = () => {
     ];
 
     return (
-        <div className="hidden w-full md:flex md:flex-col">
-            <h3 className="text-md text-primary mb-2 xl:text-[1.5rem]">
+        <div className="mb-4 flex w-[90%] flex-col justify-end">
+            <h3 className="text-md mb-6 text-primary xl:text-[1.5rem] ">
                 Technology & Tools I use:
             </h3>
-            <div className="grid w-full flex-shrink grid-cols-6 p-2 gap-4 text-center text-black">
+            <div className="grid w-full auto-cols-auto grid-flow-col grid-rows-2  text-black ">
                 {iconsIndex.map((icon) => (
                     <div
                         key={icon.label}
-                        className="flex flex-col items-center">
+                        className="flex flex-col object-contain px-2">
                         <img
                             src={images[icon.image]}
                             alt={`${icon.label} icon`}
-                            className="max-h-[50px] "
+                            className="mx-auto aspect-square h-[50%] w-[50%] object-contain"
                         />
-                        <p className="pt-2 text-sm font-semibold text-white">
+                        <p className="whitespace-nowrap pt-2 text-center text-xs font-thin text-[#FFFDFA]">
                             {icon.label}
                         </p>
                     </div>
@@ -41,5 +40,4 @@ const IconTile = () => {
         </div>
     );
 };
-
 export default IconTile;
