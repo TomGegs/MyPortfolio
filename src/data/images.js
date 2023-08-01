@@ -47,6 +47,8 @@ import ProjectWeatherApp from "../assets/images/ProjectWeatherApp.svg";
 import ProjectFinanceWebsite from "../assets/images/ProjectFinanceWebsite.svg";
 import ProjectsSpotifyPlaylist from "../assets/images/ProjectsSpotifyPlaylist.svg";
 import ContactImage from "../assets/images/ContactImage.svg";
+import CopiRite from "../assets/images/ProjectsCopiRite.svg";
+import CopiRiteV1 from "../assets/images/ProjectsCopiRite-v1.svg";
 
 //simplified icons
 const burgerMenu = HiMenu;
@@ -117,6 +119,9 @@ const images = {
     ProjectFinanceWebsite,
     ProjectsSpotifyPlaylist,
     ContactImage,
+    CopiRite,
+    CopiRiteV1,
+    
 };
 
 export default images;

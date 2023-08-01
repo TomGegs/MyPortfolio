@@ -10,13 +10,45 @@ const Projects = () => {
             className="flex h-full w-full flex-col rounded-[2rem] bg-bgSecondary px-10 pb-6 pt-4 font-encode text-[#FFFDFA] lg:px-48 lg:py-12">
             {/* Header and divider */}
             <Header title={"My Projects"} width={`100%`} />
-            <h3 className="pt-2.5 text-[1rem] font-medium font-encode text-primary lg:pt-6 xl:text-[1.5rem]">
+            <h3 className="pt-2.5 font-encode text-[1rem] font-medium text-primary lg:pt-6 xl:text-[1.5rem]">
                 A collection of things I've built (aka My Collection Selection)
             </h3>
 
             {/* All Project container */}
             <div className=" flex h-full w-full flex-col px-4 ">
                 {/* Project 1 */}
+
+                <MyProjects
+                    title={"Copi.Rite"}
+                    summary={
+                        "Simple UI to guide users through the process of generating digital marketing copy with AI"
+                    }
+                    description={
+                        "Utilises OpenAI's API to generate digital marketing copy based on user's inputs. The interface guides users through simple steps to help them generate AI marketing copy for their product or service"
+                    }
+                    techUsed={"Next.js, TypeScript, TailwindCSS"}
+                    img1={images.CopiRite}
+                    button1Url={"https://copi-rite.netlify.app/"}
+                    button2Url={
+                        "https://github.com/TomGegs/copi-rite-AI-marketing"
+                    }
+                    reverse={"false"}
+                />
+                {/* Project 2 */}
+                <MyProjects
+                    title={"Copi.Rite MvP"}
+                    summary={"First iteration of Copi.Rite"}
+                    description={
+                        "First iteration of Copi.Rite. Targeted the minimum viable function of the application's purpose of simplifying the process of generating digital marketing copy with AI."
+                    }
+                    techUsed={"Next.js, TypeScript, TailwindCSS"}
+                    img1={images.CopiRiteV1}
+                    button1Url={"https://goodcopyright.netlify.app/"}
+                    button2Url={
+                        "https://github.com/TomGegs/copywriting-ai-product"
+                    }
+                    reverse={"true"}
+                />
                 <MyProjects
                     title={"OpenAI's Dall-E Clone"}
                     summary={"Text to image generator application"}

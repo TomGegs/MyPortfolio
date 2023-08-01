@@ -43,15 +43,15 @@ const Preloader = () => {
                     <img
                         src={images.logoIcon}
                         alt="Tom G Logo"
-                        className="mx-auto my-4 h-12 w-12 animate-spin lg:my-0"
+                        className="mx-auto my-4 h-12 w-12 animate-spin lg:my-0 "
                     />
-                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:0.8s]">
+                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:0.6s]">
                         Create
                     </span>
-                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:1.6s]">
+                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:1.4s]">
                         Develop
                     </span>
-                    <span className="animate__animated animate__fadeIn animate__faster bg-gradient-to-r  from-altSecond via-secondary to-primary bg-clip-text px-6 font-encode font-medium text-transparent [animation-delay:2.2s]">
+                    <span className="animate__animated animate__fadeIn animate__faster bg-gradient-to-r  from-altSecond via-secondary to-primary bg-clip-text px-6 font-encode font-medium text-transparent [animation-delay:2s]">
                         Explore
                     </span>
                 </div>
