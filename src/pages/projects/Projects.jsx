@@ -11,18 +11,17 @@ const Projects = () => {
             {/* Header and divider */}
             <Header title={"My Projects"} width={`100%`} />
             <h3 className="pt-2.5 font-encode text-[1rem] font-medium text-primary lg:pt-6 xl:text-[1.5rem]">
-                A collection of things I've built using React, NextJS, TypeScript, Javascirpt, TailwindCSS, Node, MongoDB, and more.
+                A collection of things I've built using React, NextJS,
+                TypeScript, Javascirpt, TailwindCSS, Node, MongoDB, and more.
             </h3>
 
             {/* All Project container */}
-            <div className=" h-full w-full flex flex-col md:grid md:grid-cols-2 px-4 grid-flow-row-dense gap-6">
+            <div className=" flex h-full w-full grid-flow-row-dense flex-col gap-6 px-4 md:grid md:grid-cols-2">
                 {/* Project 1 */}
 
                 <MyProjects
                     title={"Copi.Rite"}
-                    summary={
-                        ""
-                    }
+                    summary={""}
                     description={
                         "The interface guides users through simple steps to generate marketing copy for their product or service. Utilises OpenAI's API to generate digital marketing copy based on user's inputs. "
                     }
@@ -32,7 +31,6 @@ const Projects = () => {
                     button2Url={
                         "https://github.com/TomGegs/copi-rite-AI-marketing"
                     }
-                    newTab={true}
                     reverse={"true"}
                 />
                 {/* Project 2 */}
@@ -66,7 +64,7 @@ const Projects = () => {
                     reverse={"false"}
                 />
                 {/* Project 4 */}
-                <MyProjects
+                {/* <MyProjects
                     title={"E-commerce Clothing Store"}
                     summary={""}
                     description={
@@ -77,7 +75,7 @@ const Projects = () => {
                     button1Url={""}
                     button2Url={""}
                     reverse={"true"}
-                />
+                /> */}
 
                 {/* Project 5  */}
                 <MyProjects
@@ -86,10 +84,14 @@ const Projects = () => {
                     description={
                         "Daily weather forecast application, built with React and TailwindCSS and deployed on Netlify. Users can search for a city and view the current weather and 7 day forecast."
                     }
-                    techUsed={"React, Redux, Node, Javascript"}
+                    techUsed={"React, Javascript"}
                     projectImage={images.ProjectWeatherApp}
-                    button1Url={""}
-                    button2Url={""}
+                    button1Url={
+                        "https://weather-project-portfolio.netlify.app/"
+                    }
+                    button2Url={
+                        "https://github.com/TomGegs/weather-application"
+                    }
                     reverse={"false"}
                 />
                 {/* Project 6 */}
@@ -101,7 +103,7 @@ const Projects = () => {
                     }
                     techUsed={"React, Redux, Node, Javascript"}
                     projectImage={images.ProjectsSpotifyPlaylist}
-                    button1Url={""}
+                    button1Url={"https://spotifyplaylistproject.netlify.app/"}
                     button2Url={""}
                     reverse={"true"}
                 />
@@ -112,10 +114,10 @@ const Projects = () => {
                     description={
                         "Financial services website promoting a mobile application financial tracker, BeanBoard."
                     }
-                    techUsed={"React, Redux, Node, NextJS, Javascript"}
+                    techUsed={"HTML, CSS"}
                     projectImage={images.ProjectFinanceWebsite}
-                    button1Url={""}
-                    button2Url={""}
+                    button1Url={"beanboard.netlify.app"}
+                    button2Url={"https://github.com/TomGegs/TomGegs.github.io"}
                     reverse={"false"}
                 />
             </div>
