@@ -60,7 +60,7 @@ const AboutPanel = () => {
     const copyHeader =
         "text-[1rem] min-h-[48px] lg:text-[1.5rem] 2xl:text-[2rem] font-medium font-encode text-primary";
     const copyBody =
-        "text-[0.85rem] overflow-clip mt-2 text-white min-h-[370px] lg:h-full font-light lg:justify-between flex flex-col font-encode md:text-[1.2rem] 2xl:text-[1.4rem]";
+        "text-[0.85rem] overflow-clip mt-2 text-white min-h-[350px] lg:h-full font-light lg:justify-between flex flex-col font-encode md:text-[1.2rem] 2xl:text-[1.4rem]";
 
     const skillsCopy = (
         <>
@@ -120,9 +120,9 @@ const AboutPanel = () => {
 
     return (
         // Section Container
-        <div className="relative h-fit my-12 flex w-full lg:py-6">
+        <div className="relative h-fit flex w-full ">
             {/* About tile container */}
-            <div className="mx-3 flex min-h-[95vh] w-full flex-col rounded-[2rem] bg-bgSecondary p-4 shadow-xl shadow-stone-900 lg:mx-6 lg:min-h-[700px] lg:flex-row lg:p-0">
+            <div className="flex min-h-[95vh] w-full flex-col rounded-[2rem] bg-bgSecondary p-4 shadow-xl shadow-stone-900 lg:min-h-[700px] lg:flex-row lg:p-0">
                 <div className="flex flex-col lg:flex-row">
                 <MenuSidebar
                     onToggle={handleCopyToggle}

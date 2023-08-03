@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         //wrapper
         <footer
-            className="grid-row-3 align-left grid  px-10 pb-4 pt-12  text-[#FFFDFA] lg:px-48"
+            className="grid-row-3 align-left grid pb-4 text-[#FFFDFA] lg:px-48"
             id="contact">
             {/* Img Wrapper */}
             <div className="relative w-full lg:max-h-[80vh]">

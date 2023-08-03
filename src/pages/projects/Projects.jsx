@@ -7,7 +7,7 @@ const Projects = () => {
     return (
         <div
             id="projects"
-            className="flex h-full w-full flex-col rounded-[2rem] bg-bgSecondary px-10 pb-6 pt-4 font-encode text-[#FFFDFA] lg:px-48 lg:py-12">
+            className="flex h-full w-full flex-col rounded-[2rem] bg-bgSecondary px-10 pb-6 pt-4 font-encode text-[#FFFDFA] lg:px-24 lg:py-12">
             {/* Header and divider */}
             <Header title={"My Projects"} width={`100%`} />
             <h3 className="pt-2.5 font-encode text-[1rem] font-medium text-primary lg:pt-6 xl:text-[1.5rem]">
@@ -16,7 +16,7 @@ const Projects = () => {
             </h3>
 
             {/* All Project container */}
-            <div className=" flex h-full w-full grid-flow-row-dense flex-col gap-6 px-4 md:grid md:grid-cols-2">
+            <div className=" flex h-full w-full grid-flow-row-dense flex-col gap-6 md:grid md:grid-cols-2">
                 {/* Project 1 */}
 
                 <MyProjects
@@ -35,7 +35,7 @@ const Projects = () => {
                 />
                 {/* Project 2 */}
                 <MyProjects
-                    title={"Copi.Rite MvP"}
+                    title={"Copi.Lite"}
                     summary={""}
                     description={
                         "First iteration of Copi.Rite. Targeted the minimum viable function of the application's purpose of simplifying the process of generating digital marketing copy with AI."
@@ -116,7 +116,7 @@ const Projects = () => {
                     }
                     techUsed={"HTML, CSS"}
                     projectImage={images.ProjectFinanceWebsite}
-                    button1Url={"beanboard.netlify.app"}
+                    button1Url={"https://beanboard.netlify.app"}
                     button2Url={"https://github.com/TomGegs/TomGegs.github.io"}
                     reverse={"false"}
                 />

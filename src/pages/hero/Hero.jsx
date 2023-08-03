@@ -17,7 +17,7 @@ const Hero = () => {
                 {/* Title and sub-title */}
                 <div className="relative flex w-full flex-shrink flex-col px-4 text-center lg:px-0 lg:text-left">
                     <h1 className="block animate-gradient bg-gradient-to-r from-primary via-green-300 to-[#8553F4] bg-clip-text font-encode text-[2rem] font-semibold leading-tight text-transparent md:text-[2.5rem] lg:text-[3rem] 2xl:text-[5rem]">
-                        Front-end developer <br />
+                        Frontend React Developer <br />
                         <span className="font-thin">
                             building user-centric solutions
                         </span>

@@ -6,15 +6,17 @@ import NavBar from "../components/navbar/Navbar";
 import Contact from "./contact/Contact";
 
 const Index = () => {
-  return (
-    <div className="bg-bgPrimary">
-      <NavBar />
-      <Hero/>
-      <About />
-      <Projects />
-      <Contact />
-    </div>
-  );
+    return (
+        <>
+            <NavBar />
+            <div className="flex flex-col gap-y-10 bg-bgPrimary">
+                <Hero />
+                <Projects />
+                <About />
+                <Contact />
+            </div>
+        </>
+    );
 };
 
 export default Index;
