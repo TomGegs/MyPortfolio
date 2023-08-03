@@ -22,7 +22,7 @@ const Preloader = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowPreloader(false);
-        }, 3200);
+        }, 1200);
         //clean up function
         return () => clearTimeout(timeout);
     }, []);
