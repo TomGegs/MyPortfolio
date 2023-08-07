@@ -48,7 +48,10 @@ const Hero = () => {
                         smooth={true}
                         offset={-70}
                         duration={500}>
-                        <ButtonAlt label={"View My Projects"} newTab={false}/>
+                        <ButtonAlt
+                            label={"View My Projects"}
+                            noNewTab={true}
+                        />
                     </Link>
                 </div>
                 {/* Desktop social icons */}
