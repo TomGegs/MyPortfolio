@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import MenuSidebar from "./MenuSidebar";
 import { images, aboutCopy } from "../../data/index";
 import AboutMenuMobile from "./AboutMenuMobile";
-import Header from "../../components/ui/Header";
+import LoopingHeader from "../../components/ui/LoopingHeader";
 
 const AboutPanel = () => {
     const [showSkills, setShowSkills] = useState(true);
@@ -155,11 +155,10 @@ const AboutPanel = () => {
     return (
         // Section Container
         <section
-            className="mx-auto flex w-full flex-col rounded-[2rem] px-10 pb-6 pt-4 text-[#FFFDFA] lg:px-24 lg:pt-0 "
-            id="about"
-            style={{ minHeight: copyHeight }}>
+            className="mx-auto flex w-full flex-col rounded-[2rem] px-10 pb-6 pt-4 text-[#FFFDFA] lg:min-h-[80vh] lg:px-24 lg:pt-16"
+            id="about">
             {/* About section title  */}
-            <Header
+            <LoopingHeader
                 title={`About Me:  ${
                     showSkills
                         ? aboutCopy[0].category
@@ -172,10 +171,11 @@ const AboutPanel = () => {
                         : ""
                 }`}
                 width={`100%`}
-                block={`block`}
+                direction={"left"}
             />
+
             {/* About content  */}
-            <div className="flex w-full flex-col  lg:flex-row">
+            <div className="flex w-full flex-col mt-6 lg:mt-10 lg:flex-row">
                 {/* Sidebar buttons */}
                 <div className=" hidden lg:flex lg:flex-col">
                     <MenuSidebar onToggle={handleCopyToggle} />

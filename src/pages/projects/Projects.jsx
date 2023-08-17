@@ -1,15 +1,19 @@
 import React from "react";
 import { images } from "../../data";
 import MyProjects from "./MyProjects";
-import Header from "../../components/ui/Header";
+import LoopingHeader from "../../components/ui/LoopingHeader";
 
 const Projects = () => {
     return (
         <section
             id="projects"
-            className="mx-auto flex h-full w-full flex-col rounded-[2rem] px-10 pb-6 pt-4 text-[#FFFDFA] lg:px-24 lg:pt-0 ">
+            className="mx-auto flex h-full w-full flex-col rounded-[2rem] px-10 pb-6 pt-4 text-[#FFFDFA] lg:mb-24 lg:px-24 lg:pt-0 ">
             {/* Header and divider */}
-            <Header title={"My Projects"} width={`100%`} />
+            <LoopingHeader
+                title={"My Projects"}
+                width={`100%`}
+                direction={"right"}
+            />
 
             {/* All Project container */}
             <div className=" mt-4 flex h-full w-full flex-col gap-6 md:grid md:grid-cols-2">

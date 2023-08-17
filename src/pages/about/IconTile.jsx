@@ -16,7 +16,7 @@ const IconTile = () => {
             {iconsIndex.map((icon) => (
                 <div
                     key={icon.label}
-                    className="my-2 mr-3 flex flex-col lg:mr-5 ">
+                    className="my-2 mr-3 flex flex-col lg:mr-5 animate__fadeInUp animate__animated [animation-delay:1.5s]">
                     <img
                         src={images[icon.image]}
                         alt={`${icon.label} icon`}

@@ -9,7 +9,7 @@ const Hero = () => {
     return (
         <section
             id="hero"
-            className="mx-auto mt-12 flex h-[75vh] min-h-[660px] w-full flex-col justify-center px-10 lg:min-h-[85vh] lg:px-24 ">
+            className="mx-auto mt-12 flex h-[75vh] min-h-[660px] w-full flex-col justify-center px-10 lg:min-h-[85vh] lg:px-24 animate__fadeIn animate__animated [animation-delay:1.3s]">
             <div className="absolute -z-10 -mx-10 h-[75%] w-[95%] animate-gradientFast rounded-3xl bg-gradient-to-b from-primary/25 via-secondary/40 to-altSecond/50 blur-[140px] lg:w-[75%] lg:opacity-60 lg:blur-[180px] " />
 
             <div className="mx-auto flex w-full flex-col justify-center pt-12 ">

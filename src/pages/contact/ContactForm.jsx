@@ -32,7 +32,7 @@ const ContactForm = () => {
             <form
                 ref={form}
                 onSubmit={onSubmit}
-                className="mb-4 w-full lg:w-[90%] rounded pt-6 text-black shadow-md">
+                className="mb-4 w-full rounded pt-6 text-black shadow-md lg:w-[90%]">
                 <div className="mb-4 flex flex-col lg:flex-row ">
                     <input
                         type="text"
@@ -64,22 +64,25 @@ const ContactForm = () => {
                         className="focus:shadow-outline w-full appearance-none rounded-lg border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-3">
                     <textarea
                         type="text"
                         name="message"
                         required
                         rows={4}
                         placeholder="What would you like to chat about?"
-                        className="focus:shadow-outline w-full appearance-none rounded-lg border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        className="focus:shadow-outline w-full resize-none appearance-none rounded-lg border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                 </div>
-                <button
-                    className="my-2 flex transform cursor-pointer rounded-lg border border-primary bg-primary px-[16px] py-3 text-center font-encode text-[0.8rem] font-light text-white transition-transform hover:border-altSecond hover:bg-altSecond focus:outline-none active:scale-[98%] lg:px-8 lg:py-4 lg:text-lg"
-                    type="submit"
-                    disabled={isLoading}>
-                    {isLoading ? "Sending..." : "Submit"}
-                </button>
+                <div className="relative">
+                    <div className="absolute bottom-0 left-0 h-12 w-[100%] animate-gradientFast bg-gradient-to-r from-primary via-altSecond to-secondary blur-md lg:h-16" />
+                    <button
+                        className="relative my-2 flex w-[100%] transform cursor-pointer justify-center rounded-lg bg-bgPrimary px-[16px] py-3 text-center font-encode text-[0.8rem] font-light text-white transition-transform hover:border-altSecond hover:bg-altSecond hover:text-white focus:outline-none active:translate-y-0.5 active:scale-[98%] lg:px-8 lg:py-4 lg:text-lg"
+                        type="submit"
+                        disabled={isLoading}>
+                        {isLoading ? "Sending..." : "Submit"}
+                    </button>
+                </div>
             </form>
         </>
     );

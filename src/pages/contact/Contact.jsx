@@ -1,18 +1,17 @@
 import React from "react";
 import { images } from "../../data/index";
-import Header from "../../components/ui/Header";
-import ContactIcons from "./ContactIcons";
 import ContactForm from "./ContactForm";
+import LoopingHeader from "../../components/ui/LoopingHeader";
 
 const Contact = () => {
     return (
         //wrapper
-        <footer
-            className="mx-auto flex h-full w-full flex-col rounded-[2rem] px-10 pb-2 pt-4 text-[#FFFDFA] lg:px-24 lg:pt-0 "
+        <section
+            className="mx-auto flex h-full w-full flex-col rounded-[2rem] px-10 pb-2 pt-4 text-[#FFFDFA] lg:min-h-[50vh] lg:px-24 lg:py-0"
             id="contact">
-            <Header title={"Contact"} width={`100%`} />
+            <LoopingHeader title={"Contact"} width={`100%`} direction={"right"} />
             {/* Img Wrapper */}
-            <div className="relative flex h-full w-full flex-col pt-2 lg:flex-row lg:pt-5 ">
+            <div className="relative flex h-full w-full flex-col pt-2 lg:flex-row lg:py-16">
                 <div className=" absolute top-4 h-[70%] w-[80%] animate-gradientFast rounded-[25%] bg-gradient-to-b from-primary/25 via-secondary/40 to-altSecond/50 blur-[120px] lg:top-20 lg:w-[30%] " />
                 <img
                     src={images.myHeadshot}
@@ -31,19 +30,9 @@ const Contact = () => {
                         management, and driving business growth.
                     </p>
                     <ContactForm />
-                    {/* Contact Icons */}
                 </div>
             </div>
-
-            <div className="w-full">
-                <ContactIcons />
-                {/* Copywrite footer */}
-                <p className="text-center text-xs pt-2 text-gray-600">
-                    &copy; {new Date().getFullYear()} | Designed and coded by
-                    Tom Geoghegan
-                </p>
-            </div>
-        </footer>
+        </section>
     );
 };
 
