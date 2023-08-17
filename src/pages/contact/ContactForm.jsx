@@ -77,7 +77,7 @@ const ContactForm = () => {
                 <div className="relative">
                     <div className="absolute bottom-0 left-0 h-12 w-[100%] animate-gradientFast bg-gradient-to-r from-primary via-altSecond to-secondary blur-md lg:h-16" />
                     <button
-                        className="relative my-2 flex w-[100%] transform cursor-pointer justify-center rounded-lg bg-bgPrimary px-[16px] py-3 text-center font-encode text-[0.8rem] font-light text-white transition-transform hover:border-altSecond hover:bg-altSecond hover:text-white focus:outline-none active:translate-y-0.5 active:scale-[98%] lg:px-8 lg:py-4 lg:text-lg"
+                        className="delay-50 relative my-2 flex w-[100%] transform cursor-pointer justify-center rounded-lg bg-bgPrimary px-[16px] py-3 text-center font-encode text-[0.8rem] font-light text-white transition-all hover:border-altSecond hover:bg-altSecond hover:text-white focus:outline-none active:translate-y-0.5 active:scale-[98%] lg:px-8 lg:py-4 lg:text-lg"
                         type="submit"
                         disabled={isLoading}>
                         {isLoading ? "Sending..." : "Submit"}
