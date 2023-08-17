@@ -2,7 +2,12 @@ import React, { useRef, useState } from "react";
 import { images } from "../../data/index";
 
 const MenuSidebar = ({ onToggle }) => {
-    const [currentButton, setCurrentButton] = useState("skillsCopy");
+    const [currentButton, setCurrentButton] = useState([
+        "skillsCopy",
+        "storyCopy",
+        "workCopy",
+        "hobbiesCopy",
+    ]);
 
     const handleClick = (button) => {
         onToggle(button);
@@ -11,89 +16,73 @@ const MenuSidebar = ({ onToggle }) => {
 
     const buttonRefs = {
         skillsCopy: useRef(null),
-        workCopy: useRef(null),
         storyCopy: useRef(null),
+        workCopy: useRef(null),
         hobbiesCopy: useRef(null),
     };
 
     const buttonContainer =
-        "flex w-[70%] place-items-center flex-row place-items-center cursor-pointer hover:rounded-[1rem] hover:bg-[#FFFDFA]/20 focus:rounded-[1rem] focus:text-primary active:outline-none focus:outline-none active:translate-y-[2px]";
+        "flex w-[90%] my-6 flex-row border-white/50 place-items-center align-middle font-thin text-white/50 pl-2 cursor-pointer h-[70px] focus:font-semibold font-normal focus:text-primary border-b rounded-b-2xl focus:border-primary/50 active:border-bgPrimary/50 hover:rounded-[1rem] hover:bg-[#FFFDFA]/20 focus:rounded-[1rem] focus:text-primary active:text-primary active:outline-none hover:font-semibold focus:outline-none active:translate-y-[2px] ";
 
-    const menuButton =
-        "h-[4rem] flex w-full flex-row justify-start pl-2 focus:font-semibold font-normal place-items-center focus:text-primary border-b rounded-b-2xl focus:border-primary/50 active:border-primary/50 border-bgPrimary/50";
+    const buttonClicked =
+        "active rounded-b-2xl border-b border-primary/50 text-primary";
 
-    const menuIcon = "flex flex-shrink-0 pr-2 text-[2rem] 2xl:text-[3rem]";
+    const menuIcon = "flex pr-2 text-[2rem] 2xl:text-[3rem]";
 
     return (
-        <div className="text-md hidden min-w-[15vw] flex-col rounded-[2rem] bg-bgSecondary font-semibold text-white/50 lg:flex 2xl:text-xl">
-            {/* logo */}
-            <div className="mx-auto my-8 flex items-center">
-                <img
-                    src={images.logoIcon}
-                    alt="logo"
-                    className="w-[30px] rounded-full lg:w-[50px]"
-                />
-            </div>
-            <hr className="mx-auto mb-8 h-[1px] w-[70%] animate-gradient rounded border-0 bg-gradient-to-l from-primary via-secondary to-[#cbb7f7] " />
+        <aside className="text-md hidden min-w-[200px] max-w-[14dvw] flex-col rounded-[2rem] p-3 text-xl  lg:flex">
+            {/* menu buttons */}
 
-            {/* menu buttons container */}
-            <div className="flex flex-col items-center gap-y-8 2xl:gap-y-12">
-                {/* menu buttons */}
-
-                <div className={`${buttonContainer}`}>
-                    <button
-                        ref={buttonRefs.skillsCopy}
-                        className={`${menuButton} ${
-                            currentButton === "skillsCopy"
-                                ? "active rounded-b-2xl border-b border-primary/50 text-primary"
-                                : "border-bgPrimary/50 text-white/50"
-                        }`}
-                        onClick={() => handleClick("skillsCopy")}
-                        name="skillsCopy">
-                        <images.skillsIcon className={`${menuIcon}`} />
-                        Skills
-                    </button>
-                </div>
-
-                <div className={`${buttonContainer}`}>
-                    <button
-                        ref={buttonRefs.storyCopy}
-                        className={`${menuButton} ${
-                            currentButton === "storyCopy" ? "active" : ""
-                        }`}
-                        onClick={() => handleClick("storyCopy")}
-                        name="storyCopy">
-                        <images.storyIcon className={`${menuIcon}`} />
-                        Story
-                    </button>
-                </div>
-                <div className={`${buttonContainer}`}>
-                    <button
-                        ref={buttonRefs.workCopy}
-                        className={`${menuButton} ${
-                            currentButton === "workCopy" ? "active" : ""
-                        }`}
-                        onClick={() => handleClick("workCopy")}
-                        name="workCopy">
-                        <images.workIcon className={`${menuIcon}`} />
-                        Work
-                    </button>
-                </div>
-
-                <div className={`${buttonContainer}`}>
-                    <button
-                        ref={buttonRefs.hobbiesCopy}
-                        className={`${menuButton} ${
-                            currentButton === "hobbiesCopy" ? "active" : ""
-                        }`}
-                        onClick={() => handleClick("hobbiesCopy")}
-                        name="hobbiesCopy">
-                        <images.hobbiesIcon className={`${menuIcon}`} />
-                        Hobbies
-                    </button>
-                </div>
-            </div>
-        </div>
+            <button
+                className={`${buttonContainer} ${
+                    currentButton ? buttonClicked : ""
+                }`}
+                ref={buttonRefs.skillsCopy}
+                onClick={() =>
+                    handleClick("skillsCopy") && setCurrentButton("skillsCopy")
+                }
+                name="skillsCopy">
+                <images.skillsIcon className={menuIcon} />
+                Skills
+            </button>
+            <button
+                ref={buttonRefs.storyCopy}
+                className={`${buttonContainer} ${
+                    currentButton ? buttonClicked : ""
+                }`}
+                onClick={() =>
+                    handleClick("storyCopy") && setCurrentButton("storyCopy")
+                }
+                name="storyCopy">
+                <images.storyIcon className={menuIcon} />
+                Story
+            </button>
+            <button
+                ref={buttonRefs.workCopy}
+                className={`${buttonContainer} ${
+                    "workCopy" ? buttonClicked : ""
+                }`}
+                onClick={() =>
+                    handleClick("workCopy") && setCurrentButton("workCopy")
+                }
+                name="workCopy">
+                <images.workIcon className={menuIcon} />
+                Work
+            </button>
+            <button
+                ref={buttonRefs.hobbiesCopy}
+                className={`${buttonContainer} ${
+                    "hobbiesCopy" ? buttonClicked : ""
+                }`}
+                onClick={() =>
+                    handleClick("hobbiesCopy") &&
+                    setCurrentButton("hobbiesCopy")
+                }
+                name="hobbiesCopy">
+                <images.hobbiesIcon className={menuIcon} />
+                Hobbies
+            </button>
+        </aside>
     );
 };
 

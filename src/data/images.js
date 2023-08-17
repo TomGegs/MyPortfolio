@@ -49,6 +49,7 @@ import ProjectsSpotifyPlaylist from "../assets/images/ProjectsSpotifyPlaylist.sv
 import ContactImage from "../assets/images/ContactImage.svg";
 import CopiRite from "../assets/images/ProjectsCopiRite.svg";
 import CopiRiteV1 from "../assets/images/ProjectsCopiRite-v1.svg";
+import typescript from "../assets/images/typescript.svg"
 
 //simplified icons
 const burgerMenu = HiMenu;
@@ -105,6 +106,7 @@ const images = {
     sass,
     vite,
     vscode,
+    typescript,
     bannerLogo,
     myHeadshot2,
     heroElementBackground,

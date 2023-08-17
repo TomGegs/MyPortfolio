@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { images } from "../../data";
+import "animate.css";
 
 const Preloader = () => {
     const preloaderStyle = {
@@ -14,7 +15,6 @@ const Preloader = () => {
         justifyContent: "center",
         overflow: "hidden",
         background: "#090909",
-        transition: "opacity 0.7s ease-in-out",
     };
 
     const [showPreloader, setShowPreloader] = useState(true);
@@ -22,7 +22,7 @@ const Preloader = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setShowPreloader(false);
-        }, 1000);
+        }, 1200);
         //clean up function
         return () => clearTimeout(timeout);
     }, []);
@@ -35,24 +35,20 @@ const Preloader = () => {
 
     return (
         showPreloader && (
-            <div style={preloaderStyle}>
-                <div className="relative grid h-[55vh] w-[75vw] grid-cols-1 grid-rows-5 items-center rounded-3xl bg-bgSecondary text-center align-middle font-encode text-[1.5rem] font-thin text-white lg:h-[250px] lg:grid-cols-5 lg:grid-rows-1 lg:flex-row lg:text-[2rem] ">
-                    <span className="animate__animated animate__fadeInUp animate__faster">
+            <div
+                style={preloaderStyle}
+                className="animate__fadeOut animate__animated [animation-delay:0.9s]">
+                <div className="relative flex flex-col items-center rounded-3xl bg-bgSecondary text-center align-middle font-encode text-[1.5rem] font-thin text-white lg:flex-row lg:text-[2rem] ">
+                    <span className="animate__animated animate__fadeInUp ">
                         Tom Geoghegan
                     </span>
                     <img
                         src={images.logoIcon}
                         alt="Tom G Logo"
-                        className="mx-auto my-4 h-12 w-12 animate-spin lg:my-0 "
+                        className="m-12 h-12 w-12 animate-spin lg:my-0 "
                     />
-                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:0.6s]">
-                        Create
-                    </span>
-                    <span className="animate__animated animate__fadeInUp animate__faster [animation-delay:1.4s]">
-                        Develop
-                    </span>
-                    <span className="animate__animated animate__fadeIn animate__faster bg-gradient-to-r  from-altSecond via-secondary to-primary bg-clip-text px-6 font-encode font-medium text-transparent [animation-delay:2s]">
-                        Explore
+                    <span className="animate__animated animate__fadeInUp bg-gradient-to-r  from-altSecond via-secondary to-primary bg-clip-text font-encode font-medium text-transparent [animation-delay:0.15s]">
+                        Loading...
                     </span>
                 </div>
             </div>

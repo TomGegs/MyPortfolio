@@ -2,7 +2,7 @@ const aboutCopy = [
     {
         category: "Skills",
         title: "A developer and lifelong learner.",
-        copy: "I have experience in the following languages and frameworks: \n\nHTML, CSS, JavaScript, TypeScript, TailwindCSS, React, NextJS, Git.\n\n I use Figma and AI tools to create a smooth end-to-end workflow of design, validation, build and deployment.\n\nI'm currently refining and expanding my skills to include NodeJS, ExpressJS and MongoDB to provide the M.E.R.N. stack as part of continuous learning.",
+        copy: "I have experience in the following languages and frameworks: \n\nHTML, CSS, JavaScript, TypeScript, TailwindCSS, React, NextJS\n\n I use Figma and AI tools to create a smooth end-to-end workflow of design, validation, build and deployment.\n\nI'm currently refining and expanding my skills to include NodeJS, ExpressJS and MongoDB to provide the M.E.R.N. stack as part of continuous learning.",
     },
     {
         category: "Work",

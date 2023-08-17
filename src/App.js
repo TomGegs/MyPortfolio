@@ -1,18 +1,21 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes } from "react-router-dom";
 import React from "react";
-import Index from "./pages/Index";
 import Preloader from "./components/preloader/Preloader";
+import Hero from "./pages/hero/Hero";
+import Projects from "./pages/projects/Projects";
+import NavBar from "./components/navbar/Navbar";
+import Contact from "./pages/contact/Contact";
+import AboutPanel from "./pages/about/AboutPanel";
 
 function App() {
     return (
-        <div>
+        <React.Fragment>
             <Preloader />
-            <Router>
-                <Index />
-                <Routes></Routes>
-            </Router>
-        </div>
+            <NavBar />
+                <Hero />
+                <Projects />
+                <AboutPanel />
+                <Contact />
+        </React.Fragment>
     );
 }
 

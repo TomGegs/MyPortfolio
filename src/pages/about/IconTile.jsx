@@ -4,40 +4,31 @@ const IconTile = () => {
     const iconsIndex = [
         { image: "html", label: "HTML5" },
         { image: "css", label: "CSS3" },
+        { image: "tailwindCSS", label: "TailwindCSS" },
         { image: "js", label: "JavaScript" },
+        { image: "typescript", label: "Typescript" },
         { image: "react", label: "React" },
         { image: "nextjs", label: "Next.js" },
-        { image: "vite", label: "Vite" },
-        { image: "tailwindCSS", label: "Tailwind CSS" },
-        { image: "sass", label: "SASS" },
-        { image: "git", label: "Git" },
-        { image: "vscode", label: "VS Code" },
-        { image: "figma", label: "Figma" },
-        { image: "gpt", label: "GPT4" },
     ];
 
     return (
-        <div className="mb-4 flex w-[90%] flex-col justify-end">
-            <h3 className="text-md mb-6 text-primary xl:text-[1.5rem] ">
-                Technology & Tools I use:
-            </h3>
-            <div className="grid w-full auto-cols-auto grid-flow-col grid-rows-2  text-black ">
-                {iconsIndex.map((icon) => (
-                    <div
-                        key={icon.label}
-                        className="flex flex-col object-contain px-2">
-                        <img
-                            src={images[icon.image]}
-                            alt={`${icon.label} icon`}
-                            className="mx-auto aspect-square h-[50%] w-[50%] object-contain"
-                        />
-                        <p className="whitespace-nowrap pt-2 text-center text-xs font-thin text-[#FFFDFA]">
-                            {icon.label}
-                        </p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <section className=" flex flex-row flex-wrap self-start">
+            {iconsIndex.map((icon) => (
+                <div
+                    key={icon.label}
+                    className="my-2 mr-3 flex flex-col lg:mr-5 ">
+                    <img
+                        src={images[icon.image]}
+                        alt={`${icon.label} icon`}
+                        key={icon.image}
+                        className="mx-auto aspect-square max-h-[20px] object-contain lg:max-h-[30px] xl:max-h-[40px]"
+                    />
+                    <p className="mt-2 h-full justify-center self-center text-center align-middle text-xs font-thin text-[#FFFDFA] xl:text-lg">
+                        {icon.label}
+                    </p>
+                </div>
+            ))}
+        </section>
     );
 };
 export default IconTile;

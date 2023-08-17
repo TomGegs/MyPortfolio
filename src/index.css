@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root  {
+   @apply bg-bgSecondary max-w-[1920px] mx-auto font-encode;
+   ;
+}
