@@ -1,13 +1,25 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const ContactForm = () => {
+const ContactForm = ({ handleSubmit }) => {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        userEmail: "",
+        message: "",
+    });
+
     const [isLoading, setIsLoading] = useState(false);
 
     const form = useRef(null);
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const userId = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
     const onSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -24,7 +36,8 @@ const ContactForm = () => {
         e.target.reset();
         setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+            handleSubmit();
+        }, 1000);
     };
 
     return (
@@ -38,6 +51,8 @@ const ContactForm = () => {
                         type="text"
                         name="firstName"
                         id="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
                         required
                         maxLength={500}
                         placeholder="First name"
@@ -47,6 +62,8 @@ const ContactForm = () => {
                         type="text"
                         name="lastName"
                         id="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
                         required
                         maxLength={500}
                         placeholder="Last name"
@@ -58,6 +75,8 @@ const ContactForm = () => {
                         type="email"
                         name="userEmail"
                         id="userEmail"
+                        value={formData.userEmail}
+                        onChange={handleChange}
                         required
                         maxLength={500}
                         placeholder="Email address"
@@ -68,6 +87,8 @@ const ContactForm = () => {
                     <textarea
                         type="text"
                         name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         required
                         rows={4}
                         placeholder="What would you like to chat about?"

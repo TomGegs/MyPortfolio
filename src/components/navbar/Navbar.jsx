@@ -146,7 +146,7 @@ function NavBar() {
                                 Tom Geoghegan
                             </p>
                             <p className="font-encode text-sm font-thin text-[#FFFDFA]">
-                                Front-end developer
+                                Frontend developer
                             </p>
                             <p className="font-encode text-sm font-thin text-[#FFFDFA]">
                                 tomgegs@outlook.com

@@ -20,7 +20,7 @@ const Hero = () => {
                 <p className="mt-3 font-encode font-thin leading-normal text-[#FFFDFA] lg:mt-8 xl:text-[1.5rem]">
                     Hi, I'm Tom{" "}
                     <span className="inline-flex animate-wave">👋</span>
-                    <br /> A Front-end developer, life-long learner and start-up
+                    <br /> A Frontend developer, life-long learner and start-up
                     enthusiast. <br className="hidden lg:block" /> Let grab a
                     coffee and have a chat!
                 </p>

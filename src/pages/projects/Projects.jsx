@@ -79,7 +79,7 @@ const Projects = () => {
                 />
                 {/* Project 6 */}
                 <MyProjects
-                    title={"Spotify playlists generator"}
+                    title={"Spotify Playlist Generator"}
                     description={
                         "Application to generate Spotify playlists based on user input, with users connecting their Spotify account via an API. "
                     }
